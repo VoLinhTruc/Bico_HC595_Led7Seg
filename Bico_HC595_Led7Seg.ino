@@ -1,19 +1,17 @@
 #include "Bico_Led7Seg_HC595.h"
 
-Bico_Led7Seg_HC595 led595(COMMON_ANODE, 2, 1000, 0, 6, 7, MSBFIRST, 5);
-uint8_t code[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-uint8_t digit[8] = {8, 9, 10, 11, 12, 13, 14, 15};
+Bico_Led7Seg led7(COMMON_ANODE, 4, 1000, 0);
+
+uint8_t code[8] = {2, 3, 4, 5, 6, 7, 8, 9};
+uint8_t digit[8] = {10, 11, 12, 13};
 
 long count = 0;
 
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-
-  led595.setup(digit, code);
+  led7.setup(digit, code);
 }
 
 void loop() {
-  led595.setNumberAndShow(12345678);
+  led7.setNumberAndShow(2435);
   //delay(1);
 }
